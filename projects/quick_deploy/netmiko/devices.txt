@@ -1,0 +1,10 @@
+# Lines that start with # are considered comments
+# Please list out every device with one line per device
+# Please use a comma to add device_type or driver information for either netmiko or napalm respectively
+#
+# Netmiko example format, default type is cisco_ios:
+# 192.168.12.109, cisco_nxos
+
+192.168.12.135, cisco_nxos
+192.168.12.134, arista_eos
+192.168.12.132, cisco_ios

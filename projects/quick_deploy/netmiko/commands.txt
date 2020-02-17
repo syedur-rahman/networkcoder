@@ -1,0 +1,19 @@
+# Lines that start with # are considered comments
+# Please list out every command to send over to network devices
+#
+# If there are configuration, please use the following format:
+# conf t
+# interface loopback 100
+# ip address 1.1.1.1 255.255.255.0
+# end
+
+conf t
+interface loopback100
+ip address 1.1.1.1 255.255.255.0
+end
+show ip interface brief
+conf t
+interface loopback100
+ip address 2.2.2.2 255.255.255.0
+end
+show ip interface brief
