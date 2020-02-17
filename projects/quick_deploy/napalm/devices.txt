@@ -1,0 +1,10 @@
+# Lines that start with # are considered comments
+# Please list out every device with one line per device
+# Please use a comma to add device_type or driver information for either netmiko or napalm respectively
+#
+# Napalm example format, default driver is ios:
+# 192.168.12.109, nxos
+
+192.168.12.135, nxos_ssh
+192.168.12.134, eos
+192.168.12.132, ios
