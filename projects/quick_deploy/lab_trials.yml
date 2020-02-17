@@ -1,0 +1,180 @@
+group_1:
+  description: 1 Cisco Nexus Device
+  results:
+    netmiko:
+      trial_1: 0m11.110s
+      trial_2: 0m11.207s
+      trial_3: 0m11.272s
+      trial_4: 0m11.255s
+      trial_5: 0m11.361s
+      trial_6: 0m11.233s
+      trial_7: 0m11.262s
+      trial_8: 0m11.527s
+      trial_9: 0m10.930s
+      trial_10: 0m11.224s
+    napalm:
+      trial_1: 0m22.041s
+      trial_2: 0m21.429s
+      trial_3: 0m21.704s
+      trial_4: 0m21.622s
+      trial_5: 0m21.231s
+      trial_6: 0m21.660s
+      trial_7: 0m21.128s
+      trial_8: 0m21.713s
+      trial_9: 0m21.434s
+      trial_10: 0m21.815s
+    ansible:
+      trial_1: 0m6.989s
+      trial_2: 0m6.899s
+      trial_3: 0m6.760s
+      trial_4: 0m6.796s
+      trial_5: 0m6.774s
+      trial_6: 0m6.821s
+      trial_7: 0m7.099s
+      trial_8: 0m7.168s
+      trial_9: 0m7.107s
+      trial_10: 0m6.766s
+group_2:
+  description: 1 Arista Device
+  results:
+    netmiko:
+      trial_1: 0m11.056s
+      trial_2: 0m10.625s
+      trial_3: 0m10.526s
+      trial_4: 0m10.620s
+      trial_5: 0m10.828s
+      trial_6: 0m10.629s
+      trial_7: 0m10.730s
+      trial_8: 0m10.836s
+      trial_9: 0m10.714s
+      trial_10: 0m10.533s
+    napalm:
+      trial_1: 0m2.429s
+      trial_2: 0m2.195s
+      trial_3: 0m2.266s
+      trial_4: 0m2.311s
+      trial_5: 0m2.190s
+      trial_6: 0m2.702s
+      trial_7: 0m2.917s
+      trial_8: 0m2.081s
+      trial_9: 0m2.454s
+      trial_10: 0m2.333s
+    ansible:
+      trial_1: 0m5.668s
+      trial_2: 0m5.944s
+      trial_3: 0m5.773s
+      trial_4: 0m5.710s
+      trial_5: 0m5.793s
+      trial_6: 0m5.743s
+      trial_7: 0m5.868s
+      trial_8: 0m5.583s
+      trial_9: 0m5.762s
+      trial_10: 0m5.763s
+group_3:
+  description: 1 Cisco IOS Device
+  results:
+    netmiko:
+      trial_1: 0m13.675s
+      trial_2: 0m13.851s
+      trial_3: 0m13.840s
+      trial_4: 0m20.579s
+      trial_5: 0m13.836s
+      trial_6: 0m13.836s
+      trial_7: 0m13.819s
+      trial_8: 0m20.900s
+      trial_9: 0m13.849s
+      trial_10: 0m13.825s
+    napalm:
+      trial_1: 0m39.515s
+      trial_2: 0m39.512s
+      trial_3: 0m46.336s
+      trial_4: 0m40.595s
+      trial_5: 0m39.477s
+      trial_6: 0m39.197s
+      trial_7: 0m38.909s
+      trial_8: 0m39.487s
+      trial_9: 0m46.256s
+      trial_10: 0m39.296s
+    ansible:
+      trial_1: 0m7.950s
+      trial_2: 0m7.888s
+      trial_3: 0m8.152s
+      trial_4: 0m8.020s
+      trial_5: 0m7.896s
+      trial_6: 0m7.902s
+      trial_7: 0m7.861s
+      trial_8: 0m8.101s
+      trial_9: 0m7.921s
+      trial_10: 0m8.113s
+group_4:
+  description: 1 Cisco Nexus Device, 1 Arista Device, 1 Cisco IOS Device
+  results:
+    netmiko:
+      trial_1: 0m35.613s
+      trial_2: 0m35.695s
+      trial_3: 0m42.481s
+      trial_4: 0m39.134s
+      trial_5: 0m36.801s
+      trial_6: 0m35.356s
+      trial_7: 0m35.081s
+      trial_8: 0m35.888s
+      trial_9: 0m43.092s
+      trial_10: 0m35.239s
+    napalm:
+      trial_1: 1m12.022s
+      trial_2: 1m11.796s
+      trial_3: 1m10.312s
+      trial_4: 1m3.686s
+      trial_5: 1m9.434s
+      trial_6: 1m16.012s
+      trial_7: 1m2.414s
+      trial_8: 1m11.558s
+      trial_9: 1m9.783s
+      trial_10: 1m9.458s
+    ansible:
+      trial_1: 0m17.044s
+      trial_2: 0m16.306s
+      trial_3: 0m19.434s
+      trial_4: 0m16.284s
+      trial_5: 0m16.292s
+      trial_6: 0m23.415s
+      trial_7: 0m25.172s
+      trial_8: 0m16.318s
+      trial_9: 0m16.453s
+      trial_10: 0m19.013s
+group_5:
+  description: 2 Cisco Nexus Devices, 2 Arista Devices, 2 Cisco IOS Devices
+  results:
+    netmiko:
+      trial_1: 1m11.109s
+      trial_2: 1m10.989s
+      trial_3: 1m9.853s
+      trial_4: 1m19.508s
+      trial_5: 1m18.782s
+      trial_6: 1m10.312s
+      trial_7: 1m17.816s
+      trial_8: 1m11.775s
+      trial_9: 1m13.610s
+      trial_10: 1m11.573s
+    napalm:
+      trial_1: 2m39.428s
+      trial_2: 2m10.983s
+      trial_3: 2m33.344s
+      trial_4: 2m8.529s
+      trial_5: 2m23.659s
+      trial_6: 2m9.611s
+      trial_7: 2m39.963s
+      trial_8: 2m33.194s
+      trial_9: 2m16.359s
+      trial_10: 2m26.414s
+    ansible:
+      trial_1: 0m20.973s
+      trial_2: 0m22.831s
+      trial_3: 0m20.523s
+      trial_4: 0m20.548s
+      trial_5: 0m20.810s
+      trial_6: 0m20.343s
+      trial_7: 0m20.694s
+      trial_8: 0m20.195s
+      trial_9: 0m20.284s
+      trial_10: 0m20.404s
