@@ -6,7 +6,7 @@
 
 Quickly deploy commands or configuration to a selection of network devices!
 
-The conceit of the **Quick Deploy 2.0** project is that the script has been designed under *three* connectivity frameworks. Remember, although there is no right or wrong way to automate tasks, some frameworks may suit your needs better. Pick whatever is right for your environment!
+The **Quick Deploy 2.0** project has been designed under *three* connectivity frameworks. Remember, although there is no right or wrong way to automate tasks, some frameworks may suit your needs better. Pick whatever is right for your environment!
 
 *The Quick Deploy 1.0 project was originally released under a different repo known as Pyability a few years back.*
 
