@@ -1,0 +1,128 @@
+# ansible quick deploy
+# quickly deploy commands using ansible
+
+# set up a prompt system
+# this prevents users from having to retype their credentials per play
+- name: User Prompt System
+  hosts: localhost:all
+  gather_facts: false
+  vars_files:
+    - commands.yml
+  vars_prompt:
+    - name: _device_username
+      prompt: "Username"
+      private: no
+    - name: _device_password
+      prompt: "Password"
+      private: yes
+    - name: _device_secret
+      prompt: "Secret"
+      private: yes
+    - name: _log_file
+      prompt: "Log Filename"
+      private: no
+  tasks:
+    - name: Save User Provided Credentials
+      set_fact:
+        device_username: "{{ _device_username }}"
+        device_password: "{{ _device_password }}"
+        device_secret: "{{ _device_secret }}"
+        device_commands: "{{ device_commands }}"
+        log_file: "{{ _log_file }}"
+
+# deploy commands to nxos devices
+# only runs against the hosts that are labeled as nxos in the hosts file
+- name: NXOS Deploy Commands
+  hosts: nxos
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: nxos
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    # the error handling in this playbook is poorly handled
+    # best practice would be to introduce some kind of rollback system
+    # to rollback changes should a failure occur
+    # this was not done to keep this quick deploy script consistent with the others
+    # we will do a proper implementation of error handling in a future script
+    - name: Run NXOS Commands
+      block:
+        - name: Run Commands Specified By User
+          nxos_command:
+            commands: "{{ device_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+# deploy commands to eos devices
+# only runs against the hosts that are labeled as eos in the hosts file
+- name: EOS Deploy Commands
+  hosts: eos
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: eos
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    # refer to line 47
+    - name: Run EOS Commands
+      block:
+        - name: Run Commands Specified By User
+          eos_command:
+            commands: "{{ device_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+# deploy commands to ios devices
+# only runs against the hosts that are labeled as ios in the hosts file
+- name: IOS Deploy Commands
+  hosts: ios
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    # refer to line 47
+    - name: Run IOS Commands
+      block:
+        - name: Run Commands Specified By User
+          ios_command:
+            commands: "{{ device_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+# saves the captured data to a file
+# note here that we are implementing a custom filter to parse the hostvars
+# hostvars is a global ansible datastructure that contains all fact information
+- name: Save Output To File
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ansible_connection: local
+  tasks:
+
+    - name: Save Output To File
+      copy:
+        content: "{{ hostvars | network_filter(groups) }}"
+        dest: "{{ log_file }}.txt"
