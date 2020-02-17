@@ -1,4 +1,5 @@
 <p align="center"><img src="images/logo.png" alt="NetworkCoderIcon" /></p>
+
 # NetworkCoder
 
 The objective of **NetworkCoder** is to provide *much needed context* to the network automation space.
