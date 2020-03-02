@@ -16,8 +16,9 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 
 ### Table of Contents
 
-* :star::star::star: | [Quick Deploy 2.0](projects/quick_deploy/)
-* *Parse Mac Arp - March 2nd*
+* :star: :star: :star: | [Quick Deploy 2.0](projects/quick_deploy/)
+* :star: :star: | [MAC ARP Parse](projects/mac_arp_parse)
+* *Host Trace - March 16th*
 
 ## Authors
 
