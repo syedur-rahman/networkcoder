@@ -16,11 +16,13 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 
 ### Table of Contents
 
-* :star: :star: :star: | [Quick Deploy 2.0](projects/quick_deploy/)
-* :star: :star: | [MAC ARP Parse](projects/mac_arp_parse)
-* :star: :star: :star: | [Host Trace](projects/host_trace)
-* :star: | [NXOS Account Parse](projects/nxos_account_parse) 
-* *NXOS Blame - April 13th*
+| Difficulty               | Project                                           | Description                                                  |
+| ------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
+| :star::star::star:       | [Quick Deploy 2.0](projects/quick_deploy/)        | Quickly deploy commands or configuration to a selection of network devices! |
+| :star::star:             | [MAC ARP Parse](projects/mac_arp_parse)           | Collect and combines the MAC and ARP tables from network devices! |
+| :star::star::star:       | [Host Trace](projects/host_trace)                 | Traces a host to its interface and switch!                   |
+| :star:                   | [NXOS Account Parse](projects/nxos_account_parse) | Generate a spreadsheet of all changes on a Cisco Nexus device! |
+| :star::star::star::star: | *NXOS Blame*                                      | *Releases April 13th*                                        |
 
 ## Authors
 
