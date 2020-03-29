@@ -1,0 +1,10 @@
+DATE,USER,CHANGE
+2020-03-10,frank,"interface mgmt0
+ no ip address
+interface mgmt0
+ ip address 192.168.12.135 255.255.255.0
+ip name-server 192.168.12.1 use-vrf management"
+2020-02-01,ethan,"interface loopback100
+ ip address 1.1.1.1 255.255.255.0
+interface loopback100
+ ip address 2.2.2.2 255.255.255.0"
