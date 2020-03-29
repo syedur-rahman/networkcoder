@@ -26,8 +26,8 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 
 ## Authors
 
-* **Syedur Rahman** - CCNP RS & RHCSA 7 - Senior Network Engineer at NASDAQ
-* **Ethan Barnes** - CCNP RS - Network Engineer at Montclair State University
+* **[Syedur Rahman](https://github.com/syedur-rahman)** - CCNP RS & RHCSA 7 - Senior Network Engineer at NASDAQ
+* **[Ethan Barnes](https://github.com/barnes-ethan)** - CCNP RS - Network Engineer at Montclair State University
 
 ## License
 
