@@ -19,7 +19,8 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 * :star: :star: :star: | [Quick Deploy 2.0](projects/quick_deploy/)
 * :star: :star: | [MAC ARP Parse](projects/mac_arp_parse)
 * :star: :star: :star: | [Host Trace](projects/host_trace)
-* *Parse Accounting - March 30th*
+* :star: | [NXOS Account Parse](projects/nxos_account_parse) 
+* *NXOS Blame - April 13th*
 
 ## Authors
 
