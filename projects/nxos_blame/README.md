@@ -16,19 +16,19 @@ Oh, and yes, the project is inspired by the blame feature on GitHub.
 
 **Part 1: Startup**
 
-![](https://github.com/syedur-rahman/networkcoderprep/blob/master/images/nxos_blame_gui.png)
+![](https://github.com/syedur-rahman/networkcoder/blob/master/images/nxos_blame_gui.png)
 
 This is where you can provide the details of the devices you want to analyze as well as your username and password.
 
 **Part 2: Analysis**
 
-![](https://github.com/syedur-rahman/networkcoderprep/blob/master/images/nxos_blame_analysis.gif)
+![](https://github.com/syedur-rahman/networkcoder/blob/master/images/nxos_blame_analysis.gif)
 
 After you type in your credentials and devices, the script goes forth and gathers all the relevant data on your behalf!
 
 **Part 3: Blame!**
 
-![](https://github.com/syedur-rahman/networkcoderprep/blob/master/images/nxos_blame_blame.gif)
+![](https://github.com/syedur-rahman/networkcoder/blob/master/images/nxos_blame_blame.gif)
 
 And finally, browse through the running configuration of each device and see who did what and when.
 
@@ -49,7 +49,7 @@ PySide2==5.14.1
 
 ### Logic Diagram
 
-![](https://github.com/syedur-rahman/networkcoderprep/blob/master/images/nxos_blame.png)
+![](https://github.com/syedur-rahman/networkcoder/blob/master/images/nxos_blame.png)
 
 ### Conclusion
 
