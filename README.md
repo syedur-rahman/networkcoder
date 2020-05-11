@@ -24,7 +24,7 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 | :star:                   | [NXOS Account Parse](projects/nxos_account_parse) | Generate a spreadsheet of all changes on a Cisco Nexus device! |
 | :star::star::star::star: | [NXOS Blame](projects/nxos_blame)                 | Figure out who to blame for a configuration on a Cisco nexus device! |
 | :star:                   | [Route Parse](projects/route_parse)               | Parses the routing table on a network device!                         |
-| :star::star::star:                   | *Trace Route*               | *Releases May 11th*                         |
+| :star::star::star:       | [Trace Route](projects/trace_route)               | Traces a network to its native location!                        |
 
 ## Authors
 
