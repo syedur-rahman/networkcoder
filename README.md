@@ -26,6 +26,7 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 | :star:                   | [Route Parse](projects/route_parse)               | Parses the routing table on a network device!                         |
 | :star::star::star:       | [Trace Route](projects/trace_route)               | Traces a network to its native location!                        |
 | :star:                   | [Map Network Basic](projects/map_network_basic)   | Create a very basic network diagram automatically with Napalm! |
+| :star::star::star:       | [Map Network Advanced](projects/map_network_adv)  | Create a slightly more advanced network diagram with Graphviz & Napalm! |
 
 ## Authors
 
