@@ -1,0 +1,4 @@
+Device,Vendor,Model,OS Version,Serial Number,Uptime (s),Temperature,Used RAM (b),Available RAM (b),CPU
+192.168.160.132,Cisco,3725,"3700 Software (C3725-ADVENTERPRISEK9-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)",FTX0945W0MY,26880,"{'invalid': {'is_alert': False, 'is_critical': False, 'temperature': -1.0}}",23811400,186595136,{0: {'%usage': 1.0}}
+192.168.160.133,Cisco,3725,"3700 Software (C3725-ADVENTERPRISEK9-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)",FTX0945W0MY,26880,"{'invalid': {'is_alert': False, 'is_critical': False, 'temperature': -1.0}}",23777320,186595136,{0: {'%usage': 1.0}}
+192.168.160.134,Cisco,3725,"3700 Software (C3725-ADVENTERPRISEK9-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)",FTX0945W0MY,23520,"{'invalid': {'is_alert': False, 'is_critical': False, 'temperature': -1.0}}",21367144,186595136,{0: {'%usage': 2.0}}

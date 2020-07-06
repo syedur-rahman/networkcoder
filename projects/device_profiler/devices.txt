@@ -1,0 +1,8 @@
+# Lines that start with # are considered comments
+# Please list out every device with one line per device
+# Please list in the format of device, device_type
+
+
+192.168.160.132,ios
+192.168.160.133,ios
+192.168.160.134,ios
