@@ -1,0 +1,107 @@
+# ansible vrf routing
+# dynamically collect the routing tables on network devices while being vrf aware
+
+# set up a prompt system
+# this prevents users from having to retype their credentials per play
+- name: User Prompt System
+  hosts: localhost:all
+  gather_facts: false
+  vars_prompt:
+    - name: _device_username
+      prompt: "Username"
+      private: no
+    - name: _device_password
+      prompt: "Password"
+      private: yes
+    - name: _device_secret
+      prompt: "Secret"
+      private: yes
+  tasks:
+    - name: Save User Provided Credentials
+      set_fact:
+        device_username: "{{ _device_username }}"
+        device_password: "{{ _device_password }}"
+        device_secret: "{{ _device_secret }}"
+
+# collect route data from nexus devices
+- name: NXOS Routing
+  hosts: nxos
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: nxos
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    - name: Collect VRF Information
+      ignore_errors: true
+      nxos_command:
+        commands: "show vrf"
+      register: raw_vrf
+    - name: Parse VRF Information
+      set_fact:
+        vrfs: "{{ raw_vrf | vrf_filter }}"
+    - name: Collect Route data
+      ignore_errors: true
+      nxos_command:
+        commands: "show ip route vrf {{ item }}"
+      with_items:
+        - "{{ vrfs }}"
+      register: capture
+    - name: Collect Route data - non-vrf
+      ignore_errors: true
+      nxos_command:
+        commands: "show ip route"
+      register: non_vrf_capture
+
+# collect route data from ios devices
+- name: IOS Deploy Commands
+  hosts: ios
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    - name: Collect VRF Information
+      ignore_errors: true
+      ios_command:
+        commands: "show ip vrf"
+      register: raw_vrf
+    - name: Parse VRF Information
+      set_fact:
+        vrfs: "{{ raw_vrf | vrf_filter }}"
+    - name: Collect Route data
+      ignore_errors: true
+      ios_command:
+        commands: "show ip route vrf {{ item }}"
+      with_items:
+        - "{{ vrfs }}"
+      register: capture
+    - name: Collect Route data - non-vrf
+      ignore_errors: true
+      ios_command:
+        commands: "show ip route"
+      register: non_vrf_capture
+
+# saves the captured data to a file
+- name: Save Output To File
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ansible_connection: local
+  tasks:
+    - name: Save Output To File
+      copy:
+        content: "{{ hostvars[item] | network_filter }}"
+        dest: "{{ item }}.txt"
+      with_items:
+        - "{{ groups['nxos'] }}"
+        - "{{ groups['ios'] }}"

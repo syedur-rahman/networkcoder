@@ -1,0 +1,26 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+show ip route vrf management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+IP Route Table for VRF "management"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+192.168.12.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.12.155, mgmt0, [0/0], 02:14:32, direct
+192.168.12.155/32, ubest/mbest: 1/0, attached
+    *via 192.168.12.155, mgmt0, [0/0], 02:14:32, local
+~~~~~~~~~~~~~
+show ip route
+~~~~~~~~~~~~~
+IP Route Table for VRF "default"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+2.2.2.0/24, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo100, [0/0], 02:14:41, direct
+2.2.2.2/32, ubest/mbest: 1/0, attached
+    *via 2.2.2.2, Lo100, [0/0], 02:14:41, local
