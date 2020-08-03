@@ -1,0 +1,13 @@
+# these are the commands to run by the user
+commands:
+  - 'config t'
+  - 'interface loopback100'
+  - 'ip address 1.1.1.1 255.255.255.0'
+  - 'end'
+  - 'show ip interface brief'
+  - 'config t'
+  - 'interface loopback100'
+  - 'ip address 2.2.2.2 255.255.255.0'
+  - 'end'
+  - 'show ip interface brief'
+  - 'show ip route vrf <vrf>'

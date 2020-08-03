@@ -1,0 +1,17 @@
+all:
+  hosts:
+  children:
+    nxos:
+      hosts:
+        nexus_1:
+          ansible_host: 192.168.12.135
+        nexus_2:
+          ansible_host: 192.168.12.155
+    ios:
+      hosts:
+        ios_1:
+          ansible_host: 192.168.12.132
+    eos:
+      hosts:
+        eos_1:
+          ansible_host: 192.168.12.134

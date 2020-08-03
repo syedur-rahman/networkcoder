@@ -1,0 +1,139 @@
+# ansible quick deploy
+# same as the previous quick deploy script except this one is vrf aware
+
+# set up a prompt system
+# this prevents users from having to retype their credentials per play
+- name: User Prompt System
+  hosts: localhost:all
+  gather_facts: false
+  vars_files:
+    - commands.yml
+  vars_prompt:
+    - name: _device_username
+      prompt: "Username"
+      private: no
+    - name: _device_password
+      prompt: "Password"
+      private: yes
+    - name: _device_secret
+      prompt: "Secret"
+      private: yes
+    - name: _log_file
+      prompt: "Log Filename"
+      private: no
+  tasks:
+    - name: Save User Provided Credentials
+      set_fact:
+        device_username: "{{ _device_username }}"
+        device_password: "{{ _device_password }}"
+        device_secret: "{{ _device_secret }}"
+        user_commands_raw: "{{ commands }}"
+        log_file: "{{ _log_file }}"
+
+- name: NXOS Deploy Commands
+  hosts: nxos
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: nxos
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    - name: Collect VRF Information
+      ignore_errors: true
+      nxos_command:
+        commands: "show vrf"
+      register: raw_vrf
+    - name: Parse VRF Information
+      set_fact:
+        vrfs: "{{ raw_vrf | vrf_filter }}"
+    - name: Restructure User Commands
+      set_fact:
+        user_commands: "{{ user_commands_raw | commands_filter(vrfs) }}"
+    - name: Run NXOS Commands
+      block:
+        - name: Run Commands Specified By User
+          nxos_command:
+            commands: "{{ user_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+- name: IOS Deploy Commands
+  hosts: ios
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: ios
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    - name: Collect VRF Information
+      ignore_errors: true
+      ios_command:
+        commands: "show ip vrf"
+      register: raw_vrf
+    - name: Parse VRF Information
+      set_fact:
+        vrfs: "{{ raw_vrf | vrf_filter }}"
+    - name: Restructure User Commands
+      set_fact:
+        user_commands: "{{ user_commands_raw | commands_filter(vrfs) }}"
+    - name: Run IOS Commands
+      block:
+        - name: Run Commands Specified By User
+          ios_command:
+            commands: "{{ user_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+- name: EOS Deploy Commands
+  hosts: eos
+  gather_facts: false
+  become: True
+  vars:
+    ansible_connection: network_cli
+    ansible_network_os: eos
+    ansible_user: "{{ device_username }}"
+    ansible_ssh_pass: "{{ device_password }}"
+    ansible_become_password: "{{ device_secret }}"
+    ansible_become_method: enable
+  tasks:
+    # eos
+    - name: Restructure User Commands
+      set_fact:
+        user_commands: "{{ user_commands_raw | remove_vrf_commands }}"
+    - name: Run EOS Commands
+      block:
+        - name: Run Commands Specified By User
+          eos_command:
+            commands: "{{ user_commands }}"
+          register: capture
+      rescue:
+        - name: Command Failed to Run!
+          debug:
+            msg: "{{ capture['msg'] }}"
+
+# saves the captured data to a file
+- name: Save Output To File
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ansible_connection: local
+  tasks:
+
+    - name: Save Output To File
+      copy:
+        content: "{{ hostvars | network_filter(groups) }}"
+        dest: "{{ log_file }}.txt"
