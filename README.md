@@ -30,6 +30,8 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 | :star::star:             | [Inventory Parse](projects/inventory_parse)       | Collects and outputs the inventory of network devices! |
 | :star::star::star:       | [Device Profiler](projects/device_profiler)       | Generates a device profile of Cisco network devices! |
 | :star:                   | [Ansible VRF Routing](projects/ansible_vrf_routing)       | Feature buildout to make Ansible playbooks vrf aware! |
+| :star::star::star:       | [Quick Deploy - Ansible VRF Aware](projects/ansible_quick_deploy_with_vrfs)       | A VRF Aware version of the Ansible Quick Deploy script! |
+
 ## Authors
 
 * **[Syedur Rahman](https://github.com/syedur-rahman)** - CCNP RS & RHCSA 7 - Senior Network Engineer at NASDAQ
