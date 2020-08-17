@@ -31,7 +31,7 @@ Each project is ranked from 1 ~ 5 stars. The higher the stars, the greater the c
 | :star::star::star:       | [Device Profiler](projects/device_profiler)       | Generates a device profile of Cisco network devices! |
 | :star:                   | [Ansible VRF Routing](projects/ansible_vrf_routing)       | Feature buildout to make Ansible playbooks vrf aware! |
 | :star::star::star:       | [Quick Deploy - Ansible VRF Aware](projects/ansible_quick_deploy_with_vrfs)       | A VRF Aware version of the Ansible Quick Deploy script! |
-| :star:                   | [BGP Neighbor Parse](projects/bgp_neighbor_parse) | Collects and outputs bgp neighbors! |
+| :star:                   | [BGP Neighbor Parse](projects/bgp_neighbor_parse) | Collects and outputs bgp neighbors of network devices! |
 
 ## Authors
 
