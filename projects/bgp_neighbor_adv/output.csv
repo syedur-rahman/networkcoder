@@ -1,0 +1,5 @@
+Device,BGP Neighbor IP,Interface,Router ID,State,Prefixes Received,Neighbor AS,Uptime,Description
+192.168.160.132,172.31.6.1,FastEthernet1/2,10.1.0.1,Established,3,65501,08:21:31,N/A
+192.168.160.132,172.31.6.3,FastEthernet1/1,172.31.6.3,Established,3,65502,08:21:31,N/A
+192.168.160.133,172.31.6.2,FastEthernet1/2,10.2.0.1,Established,4,65500,08:21:42, Router 2 in Las Vegas
+192.168.160.134,172.31.6.2,FastEthernet1/1,10.2.0.1,Established,5,65500,08:21:53,N/A
